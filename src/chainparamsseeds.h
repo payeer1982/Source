@@ -14,7 +14,7 @@ static const unsigned int pnSeed[] =
    //0xC61B61AC, //97.172
    //0xC632F359, //243.89
    //0xC632F35A, //243.90
-};
+
 
 
 static const unsigned int pnTestnetSeed[] = {
