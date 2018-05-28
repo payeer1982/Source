@@ -120,7 +120,7 @@ public:
 		vSeeds.push_back(CDNSSeedData("5", ""));
 		vSeeds.push_back(CDNSSeedData("6",  ""));
 
-        convertSeeds(vFixedSeeds, pnSeed, ARRAYLEN(pnSeed), nDefaultPort);
+        //convertSeeds(vFixedSeeds, pnSeed, ARRAYLEN(pnSeed), nDefaultPort);
         //vFixedSeeds.clear();
         //vSeeds.clear();
 
