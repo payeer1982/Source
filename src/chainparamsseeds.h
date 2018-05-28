@@ -5,7 +5,7 @@
 
 // Each line contains a 16-byte IPv6 address and a port.
 // IPv4 as well as onion addresses are wrapped inside a IPv6 address accordingly.
-static const unsigned int pnSeed[] =
+static SeedSpec6 pnSeed6_main[] = {
 {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,0xd1,0xfa,0xf8,0x67}, 7117},
    //0x63ECD7E3, //215.227
    //0xC61B61AC, //97.172
