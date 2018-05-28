@@ -58,10 +58,10 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0xc5;
-        pchMessageStart[1] = 0xa2;
-        pchMessageStart[2] = 0xe1;
-        pchMessageStart[3] = 0xd6;
+        pchMessageStart[0] = 0x07;
+        pchMessageStart[1] = 0x07;
+        pchMessageStart[2] = 0x01;
+        pchMessageStart[3] = 0x01;
         vAlertPubKey = ParseHex("04efa3a230591895a2a274a733989e10bd15f9cf7bfc26fcfc2d72d584378bd208c59f7809220154bd808b53ccbd422e864f359105f277a30026752fd404a0fc76");
         nDefaultPort = 7118;
         nRPCPort = 7117;
@@ -72,14 +72,14 @@ public:
             // CTxIn(COutPoint(0000000000, 4294967295), coinbase 00012a284f63742032322c20323031373a20426974636f696e2070726963652061626f76652024362c303030)
             // CTxOut(empty)
 
-        const char* pszTimestamp = "Warren Buffet predicts Bitcoin collapse.";
+        const char* pszTimestamp = "alonso el valenciano";
         std::vector<CTxIn> vin;
         vin.resize(1);
         vin[0].scriptSig = CScript() << 0 << CBigNum(42) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         std::vector<CTxOut> vout;
         vout.resize(1);
         vout[0].SetEmpty();
-        CTransaction txNew(1, 1516608000, vin, vout, 0);
+        CTransaction txNew(1, 1527513170, vin, vout, 0);
 
         LogPrintf("Genesis mainnet Transaction:  %s\n", txNew.ToString().c_str());
 
@@ -88,14 +88,21 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1516608000;
+        genesis.nTime    = 1527513170;
 		genesis.nBits = 520159231; // bnProofOfWorkLimit.GetCompact();
-        genesis.nNonce   = 132539;
+        genesis.nNonce   = 0;
 		
         hashGenesisBlock = genesis.GetHash();
+        //logprintf("genesis.nTime = %u \n", genesis.nTime);
+        //logprintf("genesis.nNonce = %u \n", genesis.nNonce);
+        //logprintf("genesis.nVersion = %u \n", genesis.nVersion);
+        //logprintf("genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
+        //logprintf("genesis.block = %s\n", genesis.GetHash().ToString().c_str());
+        //logprintf("genesis = %s\n",hashGenesisBlock.ToString().c_str());
+        //logprintf("Merkle Root = %s\n", genesis.hashMerkleRoot.ToString().c_str());
 
-        assert(hashGenesisBlock == uint256("0x0000055820595f9191ccf0c8249ca4c82526569bf14a29cec6d5ea02477ce188"));
-        assert(genesis.hashMerkleRoot == uint256("0x212d0b2584e4e736ac65347b276c3441d53f9e4450f116ae795bfec031fd084f"));
+        assert(hashGenesisBlock == uint256("0x8260ce3d394646d97ca85eaf569259aeb83c3d8044ecc63a30a5fc7ed6e596ed"));
+        assert(genesis.hashMerkleRoot == uint256("0x5f04d44459d6cb20fc7cc4abd1d3e0891ce9762590f2b3782c94a6c00d0f61ce"));
 
         
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,30);
@@ -105,13 +112,13 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
 
-        vSeeds.push_back(CDNSSeedData("0",  "165.227.83.233"));
-        vSeeds.push_back(CDNSSeedData("1",  "104.131.124.189"));
-		vSeeds.push_back(CDNSSeedData("2", "139.59.72.56"));
-		vSeeds.push_back(CDNSSeedData("3", "128.199.201.170"));
-		vSeeds.push_back(CDNSSeedData("4", "165.227.156.13"));
-		vSeeds.push_back(CDNSSeedData("5", "165.227.231.58"));
-		vSeeds.push_back(CDNSSeedData("6",  "159.89.152.81"));
+        vSeeds.push_back(CDNSSeedData("0",  "209.250.248.103"));
+        vSeeds.push_back(CDNSSeedData("1",  ""));
+		vSeeds.push_back(CDNSSeedData("2", ""));
+		vSeeds.push_back(CDNSSeedData("3", ""));
+		vSeeds.push_back(CDNSSeedData("4", ""));
+		vSeeds.push_back(CDNSSeedData("5", ""));
+		vSeeds.push_back(CDNSSeedData("6",  ""));
 
         convertSeeds(vFixedSeeds, pnSeed, ARRAYLEN(pnSeed), nDefaultPort);
         //vFixedSeeds.clear();
@@ -152,10 +159,10 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 231;
-        pchMessageStart[1] = 96;
-        pchMessageStart[2] = 51;
-        pchMessageStart[3] = 129;
+        pchMessageStart[0] = 462;
+        pchMessageStart[1] = 192;
+        pchMessageStart[2] = 102;
+        pchMessageStart[3] = 365;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 16);
         vAlertPubKey = ParseHex("04efa3a230591895a2a274a733989e10bd15f9cf7bfc26fcfc2d72d584378bd208c59f7809220154bd808b53ccbd422e864f359105f277a30026752fd404a0fc76");
         nDefaultPort = 27170;
@@ -163,7 +170,7 @@ public:
         strDataDir = "testnet";
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0000055820595f9191ccf0c8249ca4c82526569bf14a29cec6d5ea02477ce188"));
+        assert(hashGenesisBlock == uint256("0x8260ce3d394646d97ca85eaf569259aeb83c3d8044ecc63a30a5fc7ed6e596ed"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
