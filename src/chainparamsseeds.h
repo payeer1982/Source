@@ -18,3 +18,4 @@ static const unsigned int pnTestnetSeed[] = {
 
 };
 #endif
+
